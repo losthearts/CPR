@@ -1,0 +1,17 @@
+#!/bin/env sh
+
+torun() {
+	clock=$(date "+[%I:%M %P]")
+}
+
+toshow() {
+	xsetroot -name "$clock"
+}
+
+while true; do
+	sleep 5 &
+	wait && {
+		torun
+		toshow
+	}
+done
